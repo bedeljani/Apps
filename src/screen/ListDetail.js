@@ -150,7 +150,7 @@ import {data, formatRupiah} from '../../data'
                                 pagingEnabled={true}
                                 horizontal={true}
                                 renderItem={({item}) =>(
-                                    <Image style={{height: 200, width : Dimensions.get('window').width}} source={item} />
+                                    <Image style={{height: 200, width : Dimensions.get('window').width}} source={{uri : item}} />
                                 )}
                             />
                     </View>

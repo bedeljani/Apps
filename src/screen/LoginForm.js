@@ -36,7 +36,7 @@ export default class LoginForm extends Component {
     } 
     _submitHandler = async () => {
         let dataUser = this.state.data
-         await axios.post(`${apiUrl()}/user/login`, qs.stringify(dataUser), config)
+        const a = await axios.post(`${apiUrl()}/login`, dataUser)
           .then(async (res) => {
             await AsyncStorage.setItem('token', res.data.token)
             console.log(res.data.token)      
@@ -44,11 +44,13 @@ export default class LoginForm extends Component {
         
         })
           .catch(function (error) {
-            console.log(dataUser)
+            console.log(error)
             // Error saving data
             alert('Something is wrong '+error)
           })
-        
+        console.log('====================================');
+        console.log(a);
+        console.log('====================================');
       }
 
     handleLogin = async () => {
@@ -93,21 +95,16 @@ export default class LoginForm extends Component {
                                 />
                             </Item>
                             
-                            
-                            
                         </Form>
                         <Button block success style={{margin :10, borderRadius:10, backgroundColor : '#43A047'}}
-                            onPress={this.handleLogin}
+                            onPress={this._submitHandler}
                         >
                                 <Text>Login</Text>
-                                
                         </Button>
                         <View  style={{alignSelf:'center', padding: 20, flexDirection : 'row'}}>
                             <Text>Belum Punya Akun ? </Text>
                             <Text style={{color : '#43A047'}} onPress={() => this.props.navigation.navigate('RegisterForm')}>Register</Text>
-
                         </View>
-                    
                 </Content>
             </Container>
         )

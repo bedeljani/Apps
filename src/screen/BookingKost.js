@@ -135,7 +135,7 @@ export default class BookingKost extends Component {
           </View>
           <Divider style={styles.divider} />
           <View style={styles.kostDataContainer}>
-            <Image source={item.images[0]} style={styles.kostImage} />
+            <Image source={{uri :item.images[0]}} style={styles.kostImage} />
             <View style={styles.kostData}>
               <Text style={{ fontSize: 17 }}>{item.name} {item.address}</Text>
               <View style={{ borderWidth: 0 }}>

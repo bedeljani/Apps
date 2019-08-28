@@ -1,7 +1,7 @@
 import * as types from './../types';
-
+import apiUrl from '../../utils/apiUrl'
 const initialState = {
-  isLoading: false,
+  loading: false,
   data: [],
   error: null
 }
@@ -11,35 +11,49 @@ export default function dorms(state = initialState, action) {
     case types.GET_DORMS:
       return {
         ...state,
-        isLoading: true
+        loading: true,      
       };
     case types.GET_DORMS_FULFILLED:
       return {
         ...state,
-        isLoading: false,
-        data: action.payload.data
+        loading: false,
+        data: action.payload.data.data.map((i) => (
+          {
+            ...i,
+            region : {
+              latitude :parseFloat(i.region.split(', ')[0]),
+              longitude :parseFloat(i.region.split(', ')[1]),
+            },
+            roomSize : {
+              width : i.roomWidth,
+              length : i.roomLength,
+            },
+            facilities : i.facilities.split(', ').map((i) => (i) ),
+            images : i.images.split(', ').map((i) => (`${apiUrl()}/${i}`) ),
+          }
+        ))
       };
     case types.GET_DORMS_REJECTED:
       return {
         ...state,
-        isLoading: false,
+        loading: false,
         error: payload.message
       };
 
     case types.ADD_DORM:
       return {
         ...state,
-        isLoading: true
+        loading: true
       };
     case types.ADD_DORM_FULFILLED:
       return {
         ...state,
-        isLoading: false,
+        loading: false,
       };
     case types.ADD_DORM_REJECTED:
       return {
         ...state,
-        isLoading: false,
+        loading: false,
         error: payload.message
       };
     default:

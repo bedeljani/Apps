@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View, Text, StyleSheet, Image, FlatList, TouchableOpacity } from 'react-native'
+import { View, Text, StyleSheet, Image, FlatList, TouchableOpacity, ActivityIndicator } from 'react-native'
 import { Container, Content, Button, Right } from 'native-base'
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons'
 import Modal from 'react-native-modal'
@@ -29,24 +29,30 @@ class List extends Component {
             }
         )
     }
-    componentDidMount() {
-        this.props.getDorms()
+    async componentDidMount() {
+        await this.props.getDorms()
+      //  this.setState({
+          //  data : this.props.dorms.data
+        //})
     }
 
     render() {
-        // console.log(this.props.dorms)
+         
         return (
             <Container >
                 <GoBackHeader navigation={this.props.navigation} />
                 <Content style={{ padding: 10 }}>
+                    {this.props.dorms.data && (
                     <FlatList
                         keyExtractor={(item) => item.id.toString()}
-                        data={this.state.data}
+                        data={this.props.dorms.data}
                         renderItem={({ item }) => {
                             return (
                                 <KostListItem key={item.id.toString()} item={item} navigation={this.props.navigation} />
                             )
                         }} />
+                    )}
+                    {this.props.dorms.isLoading && (<ActivityIndicator size="large" color="#0000ff" />)}
                     <View style={{ height: 100 }}></View>
                 </Content>
                 <View

@@ -14,7 +14,7 @@ export default class KostListItem extends React.Component {
             >
                 <Card style={{ borderRadius: 10 }}>
                     <CardItem cardBody style={{ borderRadius: 10 }}>
-                        <Image source={this.props.item.images[0]} style={{ height: 200, width: null, flex: 1, borderRadius: 10 }} />
+                        <Image source={{uri : this.props.item.images[0]}} style={{ height: 200, width: null, flex: 1, borderRadius: 10 }} />
                     </CardItem>
                     <Text
                         style={{

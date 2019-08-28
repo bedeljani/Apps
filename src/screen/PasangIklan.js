@@ -149,7 +149,7 @@ class PasangIklan extends Component {
             title: 'Pilih Gambar',
             storageOptions: {
                 skipBackup: true,
-                path: '../../asset/images'
+                path: 'images'
             },
         }
         ImagePicker.showImagePicker(options, (response) => {
@@ -261,26 +261,49 @@ class PasangIklan extends Component {
             roomSize,
             roomType
         } = this.state.data
+        const {latitude, longitude} = region
+        const {width, length} = roomSize
+        let facilitiesString
+        facilities.forEach((item,index) => {
+            if(index === 0){
+                facilitiesString = item
+            }else{
+                facilitiesString +=  ', ' +item
+            }
+        })
         let data = new FormData()
         data.append('name', name)
         data.append('address', address)
-        data.append('region', region)
+        data.append('latitude', latitude)
+        data.append('longitude', longitude)
+        data.append('roomWidth', width)
+        data.append('roomLength', length)
         data.append('city', city)
-        data.append('images', images.map((item, index) => (
-            {
+        // data.append('image', images.map((item, index) => (
+        //     {
+        //         uri: item.uri,
+        //         name: `${index}.jpg`,
+        //         type: item.type
+        //     }))
+        // )
+        images.map((item, index)=>{
+            data.append('image', {
                 uri: item.uri,
-                name: `${new Date().now()}.jpg`,
+                name: `${index}.jpg`,
                 type: item.type
-            }))
-        )
+            })
+        })
         data.append('description', description)
-        data.append('facilities', facilities)
+       data.append('facilities', facilitiesString)
         data.append('price', price)
         data.append('roomNumber', roomNumber)
-        data.append('roomSize', roomSize)
         data.append('roomType', roomType)
         const token = await AsyncStorage.getItem('token')
+        console.log('====================================');
+        console.log(data);
+        console.log('====================================');
         this.props.addDorm(data, token)
+        this.props.navigation.navigate('Explore')
     }
     async componentDidMount() {
         const prov = await Axios.get('http://dev.farizdotid.com/api/daerahindonesia/provinsi')
