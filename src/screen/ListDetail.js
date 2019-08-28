@@ -112,7 +112,7 @@ import {data, formatRupiah} from '../../data'
     render(){
         const { navigation } = this.props
         const item = navigation.getParam('item')
-        // const img = item.images.map((item)=>(
+        // const img = item.image.map((item)=>(
             
         // ))
         const region = {
@@ -146,7 +146,7 @@ import {data, formatRupiah} from '../../data'
                             height: 200,
                             display : this.state.imageDisplay} }> 
                             <FlatList 
-                                data={item.images}
+                                data={item.image}
                                 pagingEnabled={true}
                                 horizontal={true}
                                 renderItem={({item}) =>(

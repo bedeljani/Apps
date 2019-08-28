@@ -17,19 +17,20 @@ export default function dorms(state = initialState, action) {
       return {
         ...state,
         loading: false,
-        data: action.payload.data.data.map((i) => (
+        data: action.payload.data.map((i) => (
           {
             ...i,
             region : {
-              latitude :parseFloat(i.region.split(', ')[0]),
-              longitude :parseFloat(i.region.split(', ')[1]),
+              latitude : parseFloat(i.lat),
+              longitude : parseFloat(i.long)
             },
             roomSize : {
-              width : i.roomWidth,
-              length : i.roomLength,
+              width : i.width,
+              length : i.wength,
             },
-            facilities : i.facilities.split(', ').map((i) => (i) ),
-            images : i.images.split(', ').map((i) => (`${apiUrl()}/${i}`) ),
+            image : i.image.map((i) => (`${apiUrl()}public/images/${i}`))
+
+            
           }
         ))
       };

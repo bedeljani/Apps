@@ -37,18 +37,18 @@ class List extends Component {
     }
 
     render() {
-         
+         console.log(this.props.dorms.data)
         return (
             <Container >
                 <GoBackHeader navigation={this.props.navigation} />
                 <Content style={{ padding: 10 }}>
                     {this.props.dorms.data && (
                     <FlatList
-                        keyExtractor={(item) => item.id.toString()}
+                        keyExtractor={(item) => item._id.toString()}
                         data={this.props.dorms.data}
                         renderItem={({ item }) => {
                             return (
-                                <KostListItem key={item.id.toString()} item={item} navigation={this.props.navigation} />
+                                <KostListItem key={item._id.toString()} item={item} navigation={this.props.navigation} />
                             )
                         }} />
                     )}

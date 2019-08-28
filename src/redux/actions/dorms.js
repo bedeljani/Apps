@@ -6,7 +6,7 @@ export const getDorms = () => ({
   type: types.GET_DORMS,
   payload: axios({
     method: 'GET',
-    url: `${apiUrl()}/kosts`
+    url: `${apiUrl()}/dorms`
   })
 })
 

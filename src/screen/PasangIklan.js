@@ -5,8 +5,10 @@ import { Container, Label, Content, Header, Left, Body, Picker, Right, Button, I
 import MapView, { Marker } from 'react-native-maps'
 import ImagePicker from 'react-native-image-picker'
 import { connect } from 'react-redux'
+import apiUrl from '../utils/apiUrl'
 import Axios from 'axios'
 import AsyncStorage from '@react-native-community/async-storage'
+
 
 import * as actionDorms from '../redux/actions/dorms'
 
@@ -274,26 +276,21 @@ class PasangIklan extends Component {
         let data = new FormData()
         data.append('name', name)
         data.append('address', address)
-        data.append('latitude', latitude)
-        data.append('longitude', longitude)
-        data.append('roomWidth', width)
-        data.append('roomLength', length)
+        data.append('lat', latitude)
+        data.append('long', longitude)
+        data.append('width', width)
+        data.append('length', length)
         data.append('city', city)
-        // data.append('image', images.map((item, index) => (
-        //     {
-        //         uri: item.uri,
-        //         name: `${index}.jpg`,
-        //         type: item.type
-        //     }))
-        // )
+       
         images.map((item, index)=>{
-            data.append('image', {
+            data.append('files', {
                 uri: item.uri,
                 name: `${index}.jpg`,
                 type: item.type
             })
         })
-        data.append('description', description)
+
+        data.append('desc', description)
        data.append('facilities', facilitiesString)
         data.append('price', price)
         data.append('roomNumber', roomNumber)
@@ -302,8 +299,17 @@ class PasangIklan extends Component {
         console.log('====================================');
         console.log(data);
         console.log('====================================');
-        this.props.addDorm(data, token)
-        this.props.navigation.navigate('Explore')
+        //this.props.addDorm(data, token)
+        Axios.post(`${apiUrl()}/dorms/`, data, {
+           headers: { 'authorization': "Bearer " + token }
+        }).then((res)=>{
+                alert('Data Berhasil disimpan'),
+                this.props.navigation.navigate('Explore')
+            
+        }).catch((err)=>{
+            alert(err)
+        })
+        
     }
     async componentDidMount() {
         const prov = await Axios.get('http://dev.farizdotid.com/api/daerahindonesia/provinsi')

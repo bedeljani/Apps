@@ -36,21 +36,23 @@ export default class LoginForm extends Component {
     } 
     _submitHandler = async () => {
         let dataUser = this.state.data
-        const a = await axios.post(`${apiUrl()}/login`, dataUser)
+        axios.post(`${apiUrl()}/login`, dataUser)
           .then(async (res) => {
+              console.log(res)
+            if(res.data.message === undefined){
             await AsyncStorage.setItem('token', res.data.token)
+            await AsyncStorage.setItem('refreshToken', res.data.refreshToken)
             console.log(res.data.token)      
             this.props.navigation.navigate('Auth')
-        
+            }else{
+                alert(res.data.message)
+            }
         })
           .catch(function (error) {
             console.log(error)
             // Error saving data
             alert('Something is wrong '+error)
           })
-        console.log('====================================');
-        console.log(a);
-        console.log('====================================');
       }
 
     handleLogin = async () => {
