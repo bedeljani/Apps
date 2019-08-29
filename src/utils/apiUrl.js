@@ -1,1 +1,1 @@
-export default () => 'http://192.168.0.30:5000/api/';
+export default () => 'http://abah-kos.cloudno.de/api/';

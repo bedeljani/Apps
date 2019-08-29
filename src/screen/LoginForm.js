@@ -51,7 +51,7 @@ export default class LoginForm extends Component {
           .catch(function (error) {
             console.log(error)
             // Error saving data
-            alert('Something is wrong '+error)
+            alert('Gagal Login, pastikan uername dan pasword benar')
           })
       }
 

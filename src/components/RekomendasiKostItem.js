@@ -37,7 +37,7 @@ export default class RekomendasiKostItem extends React.Component {
                             borderBottomLeftRadius: 10,
                             borderBottomRightRadius: 10
                         }}
-                        source={this.props.item.images[0]} />
+                        source={{uri :this.props.item.image[0]}} />
                     <View style={{
                         position: 'absolute',
                         //top: 0,

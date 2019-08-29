@@ -3,6 +3,7 @@ import {View} from 'react-native'
 import { Container, Label, Content, Header, Left, Body, Right, Button, Icon, Title, Text, Footer, Form, Item, Input, FooterTab, H1 } from 'native-base'
 import axios from 'axios'
 import apiUrl from '../utils/apiUrl'
+import AsyncStorage from '@react-native-community/async-storage';
 const qs = require('querystring')
 
 const config = {
@@ -20,7 +21,7 @@ constructor(props){
         name : '',
         email : '',
         password : '',
-        password2 : ''
+        confirm_password : ''
     },
     
 }
@@ -44,12 +45,16 @@ handleChange = (text, state) =>{
 
 _submitHandler = async () => {
     let dataUser = this.state.data
-     await axios.post(`${apiUrl()}/user/register`, qs.stringify(dataUser), config)
-      .then(async (res) => this.props.navigation.navigate('LoginForm'))
+     await axios.post(`${apiUrl()}register`, qs.stringify(dataUser), config)
+      .then(async (res) => {
+          console.log(res)
+            await AsyncStorage.setItem('token', res.data.token)
+          this.props.navigation.navigate('Auth')
+    })
       .catch(function (error) {
         console.log(dataUser)
         // Error saving data
-        alert('Something is wrong '+error)
+        alert('Gagal register, mohon pastikan semua format terisi dengan benar')
       })
     
   }
@@ -106,7 +111,7 @@ _submitHandler = async () => {
                                 <Input 
                                        secureTextEntry = {true}
                                        value={this.state.data.password2}
-                                       onChangeText={(text) =>this.handleChange(text, 'password2')}
+                                       onChangeText={(text) =>this.handleChange(text, 'confirm_password')}
                                           
                                        />
                             </Item>

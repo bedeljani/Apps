@@ -2,15 +2,14 @@ import React, {Component} from 'react'
 import {View, Dimensions, Image, StyleSheet, TouchableOpacity, Share} from 'react-native'
 import MapView from 'react-native-maps'
 import { Container, Header, Title, Content, Footer, FooterTab, Button, Left, Right, Body, Icon,  Text } from 'native-base'
-
 import Ionicon from 'react-native-vector-icons/Ionicons'
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons'
 import { ScrollView, FlatList } from 'react-native-gesture-handler'
 import AsyncStorage from '@react-native-community/async-storage'
+import { connect } from 'react-redux'
 
 import Fasilitas from '../components/Fasilitas'
 import RekomendasiKostItem from '../components/RekomendasiKostItem'
-
 import {data, formatRupiah} from '../../data'
  class ListDetail extends Component {
     constructor(props) {
@@ -113,7 +112,7 @@ import {data, formatRupiah} from '../../data'
         const { navigation } = this.props
         const item = navigation.getParam('item')
         // const img = item.image.map((item)=>(
-            
+        console.log(item)
         // ))
         const region = {
             longitude : navigation.getParam('item').region.longitude,
@@ -324,7 +323,7 @@ import {data, formatRupiah} from '../../data'
                             horizontal={true} 
                             showsHorizontalScrollIndicator={false}
                             keyExtractor={(item) =>  item.title }
-                            data = {this.state.data}
+                            data = {this.props.dorms.data}
                             renderItem = {({item}) => {
                                 return(
                                     
@@ -357,8 +356,20 @@ import {data, formatRupiah} from '../../data'
     }
 
 }
-export default  ListDetail
 
+
+const mapStateToProps = state => {
+    return {
+        dorms: state.dorms
+    }
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+        getDorms: () => dispatch(actionDorms.getDorms()),
+    }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(ListDetail)
 const styles = StyleSheet.create({
     tabBar:{
         backgroundColor : 'black',

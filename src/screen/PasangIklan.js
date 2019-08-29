@@ -307,7 +307,7 @@ class PasangIklan extends Component {
                 this.props.navigation.navigate('Explore')
             
         }).catch((err)=>{
-            alert(err)
+            alert('Mohon isi semua format yang tersedia')
         })
         
     }

@@ -26,7 +26,7 @@ export default function dorms(state = initialState, action) {
             },
             roomSize : {
               width : i.width,
-              length : i.wength,
+              length : i.length,
             },
             image : i.image.map((i) => (`${apiUrl()}public/images/${i}`))
 
