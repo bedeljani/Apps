@@ -1,18 +1,11 @@
 
-<h1 align="center">
-  <img src="./logo.png" width="300"/><br>
-</h1>
 
 ## Important
 This project is still on very early development stage. If you want to use for production, use it with your own risk.
 <br>More feature Coming Really Soon.
 
-## Iyat
-Iyat is a Vacum Toilet Truck Finder App. We are ready to help, when Your 💩💩💩 stuck in your water closet.  
-
-Click to Watch Video on Youtube:
-
-[![Iyat Video](https://img.youtube.com/vi/f5fHm3I7Exk/0.jpg)](https://www.youtube.com/watch?v=f5fHm3I7Exk)
+## AbahKos
+AbahKos is a Dorm Finder App. You can find a Dorm easier with this app.  
 
 ## Screenshots
 
@@ -28,65 +21,44 @@ Click to Watch Video on Youtube:
 
 
 ## Features
-* Choose a Service type
-* Pick Location
-* Finding the truck
-* Order History
+* Advertise Your Dorm
+* Search for Drms
 
-## Why Iyat?
-* Out of the box app of the year!
+
+## Why AbahKos?
 * It's React Native, so it support android & iOS by default!
 * Simple Code, so you can easily contribute on it.
-* Meteor is one of the most starred javascript framework, and it is very easy to use
 
 ## Tech Stack
 * React Native for the Mobile Frontend
-* MeteorJs as the Backend
+* Express.js as the Backend
 
 ## Prerequisites
 * Make sure You had been install NodeJs in your system https://nodejs.org/
 * Then install React Native https://facebook.github.io/react-native/
-* Don’t forget Meteor Js as the backend https://www.meteor.com/
+
 
 ## Installation & Configuration
 Follow these step to install
 
 **Frontend:**
 ```
-$ git clone https://github.com/DumbWaysDotId/course-repo-example
-$ cd course-repo-example/frontend
+$ git clone https://github.com/bedeljani/Apps
 $ npm install
-$ react-native run-ios #for ios
-$ react-native run-android #for android
-```
-Open “app/Config.js”, and set the meteorUri variable as your Meteor server run at
-```javascript
-export const meteorUri = ‘ws://localhost:3000/websocket’;
+$ react-native run-android 
 ```
 
-**Back-end:**
-```
-$ cd course-repo-example/backend
-$ meteor npm install
-$ meteor #run your meteor on http://localhost:3000
-```
 
 ## Support Me :)
 * Star this repository :star:
-* Hire Me https://www.linkedin.com/in/radiegtya
+* Hire Me www.linkedin.com/in/muhammad-haris-abdurrahman
 
 ## Contact 
-* WA/TELEGRAM: +62 8564 1278 479
-* email: radiegtya@dumbways.id
+* WA/TELEGRAM: +62 822 1691 0490
+* email: m.haris.abdurrahman@gmail.com
 
 ## Download App (Demo usage only)
-[![Iyat Download](https://i1.wp.com/apkmodsios.com/wp-content/uploads/2018/12/Download-Infinite-Design-3.4.10-Apk.png)](https://linktodownload.com/course-repo-example.apk)
+[![AbahKos Download](https://i1.wp.com/apkmodsios.com/wp-content/uploads/2018/12/Download-Infinite-Design-3.4.10-Apk.png)](https://linktodownload.com/course-repo-example.apk)
 
 
 ----
-
-## License
-
-BSD 3-Clause License
-
-See [LICENSE](LICENSE)
