@@ -10,13 +10,13 @@ AbahKos is a Dorm Finder App. You can find a Dorm easier with this app.
 ## Screenshots
 
 <p float="left">
-  <img src="https://imgur.com/OQDZ7B9.png" width="200" height="350"/>
+  <img src="https://imgur.com/OQDZ7B9.png" width="200" />
 
-  <img src="https://imgur.com/8nn9no6.png" width="200" height="350" />
+  <img src="https://imgur.com/8nn9no6.png" width="200"  />
 
-  <img src="https://imgur.com/JjQnubC.png" width="200" height="350" />
+  <img src="https://imgur.com/JjQnubC.png" width="200"  />
 
-  <img src="https://imgur.com/lnU6QDR" width="200" height="350" />
+  <img src="https://imgur.com/lnU6QDR.png" width="200"  />
 </p>
 
 
