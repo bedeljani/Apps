@@ -49,13 +49,18 @@ $ react-native run-android
 ```
 
 
-## Support Me :)
+## Support Us :)
 * Star this repository :star:
-* Hire Me www.linkedin.com/in/muhammad-haris-abdurrahman
-
+* Hire Us 
+  * M Haris : www.linkedin.com/in/muhammad-haris-abdurrahman
+  * Abdel : 
 ## Contact 
-* WA/TELEGRAM: +62 822 1691 0490
-* email: m.haris.abdurrahman@gmail.com
+* M Haris
+  * WA/TELEGRAM: +62 822 1691 0490
+  * email: m.haris.abdurrahman@gmail.com
+* Abdel
+  * WA/TELEGRAM: 
+  * email: 
 
 ## Download App (Demo usage only)
 [![AbahKos Download](https://i1.wp.com/apkmodsios.com/wp-content/uploads/2018/12/Download-Infinite-Design-3.4.10-Apk.png)](https://linktodownload.com/course-repo-example.apk)
