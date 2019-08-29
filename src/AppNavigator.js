@@ -37,24 +37,24 @@ export const AppNavigator = createSwitchNavigator({
 
               }
             },
-            Wishlist: {
-              screen: Wishlist,
-              navigationOptions: {
-                tabBarIcon: ({
-                  tintColor
-                }) => < Icon name = 'md-heart'
-                size = {
-                  20
-                }
-                color = {
-                  tintColor
-                }
-                />,
+            // Wishlist: {
+            //   screen: Wishlist,
+            //   navigationOptions: {
+            //     tabBarIcon: ({
+            //       tintColor
+            //     }) => < Icon name = 'md-heart'
+            //     size = {
+            //       20
+            //     }
+            //     color = {
+            //       tintColor
+            //     }
+            //     />,
 
 
-              }
+            //   }
 
-            },
+            // },
             Login: {
               screen: Login,
               navigationOptions: {
@@ -123,24 +123,24 @@ export const AppNavigator = createSwitchNavigator({
 
               }
             },
-            Wishlist: {
-              screen: Wishlist,
-              navigationOptions: {
-                tabBarIcon: ({
-                  tintColor
-                }) => < Icon name = 'md-heart'
-                size = {
-                  20
-                }
-                color = {
-                  tintColor
-                }
-                />,
+            // Wishlist: {
+            //   screen: Wishlist,
+            //   navigationOptions: {
+            //     tabBarIcon: ({
+            //       tintColor
+            //     }) => < Icon name = 'md-heart'
+            //     size = {
+            //       20
+            //     }
+            //     color = {
+            //       tintColor
+            //     }
+            //     />,
 
 
-              }
+            //   }
 
-            },
+            // },
             Profil: {
               screen: Profil,
               navigationOptions: {

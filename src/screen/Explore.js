@@ -191,11 +191,10 @@ class Explore extends Component {
                 data={this.state.data}
                 renderItem={({ item: rowData }) => {
                   return (
-                    <TouchableOpacity onPress={() => { this.props.navigation.navigate('List', {}) }}>
+                    <TouchableOpacity onPress={() => { this.props.navigation.navigate('List') }}>
                       <View style={styles.content}>
                         <View style={{ flex: 2 }}>
-                          <Image source={rowData.img} style={styles.img}
-                          />
+                          <Image source={rowData.img} style={styles.img}/>
                         </View>
                         <View style={styles.timage}>
                           <Text style={{ color: '#fff' }}>{rowData.title}</Text>

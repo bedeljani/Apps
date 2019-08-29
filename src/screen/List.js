@@ -4,20 +4,19 @@ import { Container, Content, Button, Right } from 'native-base'
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons'
 import Modal from 'react-native-modal'
 import { connect } from 'react-redux'
-import * as actionDorms from '../redux/actions/dorms'
+import {getDorms} from '../redux/actions/dorms'
 
 import KostListItem from '../components/KostListItem'
 import GoBackHeader from '../components/GoBackHeader'
-import { data } from '../../data'
-
 
 
 
 class List extends Component {
     constructor(props) {
         super(props)
+
         this.state = {
-            data: data,
+            
             visibleModal: null,
             sortOption: 'acak'
         }
@@ -29,20 +28,20 @@ class List extends Component {
             }
         )
     }
-    async componentDidMount() {
-        await this.props.getDorms()
-      //  this.setState({
-          //  data : this.props.dorms.data
-        //})
+     componentDidMount() {
+         try {
+            this.props.dispatch(getDorms());
+          } catch (err) {
+            console.log(err);
+          }
     }
 
     render() {
-         console.log(this.props.dorms.data)
         return (
             <Container >
                 <GoBackHeader navigation={this.props.navigation} />
                 <Content style={{ padding: 10 }}>
-                    {this.props.dorms.data && (
+                    {this.props.dorms.loading === false && (
                     <FlatList
                         keyExtractor={(item) => item._id.toString()}
                         data={this.props.dorms.data}
@@ -51,8 +50,7 @@ class List extends Component {
                                 <KostListItem key={item._id.toString()} item={item} navigation={this.props.navigation} />
                             )
                         }} />
-                    )}
-                    {this.props.dorms.isLoading && (<ActivityIndicator size="large" color="#0000ff" />)}
+        ) }{this.props.dorms.loading === true && (<ActivityIndicator size="large" color="#00ff00" />)}
                     <View style={{ height: 100 }}></View>
                 </Content>
                 <View
@@ -112,11 +110,11 @@ const mapStateToProps = state => {
     }
 }
 
-const mapDispatchToProps = dispatch => {
-    return {
-        getDorms: () => dispatch(actionDorms.getDorms()),
-    }
-}
+// const mapDispatchToProps = dispatch => {
+//     return {
+//         getDorms: () => dispatch(actionDorms.getDorms()),
+//     }
+// }
 
 
 
@@ -156,4 +154,4 @@ const styles = StyleSheet.create({
 
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(List)
+export default connect(mapStateToProps)(List)

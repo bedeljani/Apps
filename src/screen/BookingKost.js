@@ -177,7 +177,7 @@ export default class BookingKost extends Component {
           <Divider style={styles.divider} />
           <Button block
             style={styles.button}
-          //onPress={this.handleLogin}
+          onPress={() => this.props.navigation.navigate('Explore')}
           >
             <Text>Pesan</Text>
 

@@ -8,16 +8,18 @@ const initialState = {
 
 export default function dorms(state = initialState, action) {
   switch (action.type) {
-    case types.GET_DORMS:
+    case "GET_DORMS_PENDING":
       return {
         ...state,
+        data : [],
         loading: true,      
       };
-    case types.GET_DORMS_FULFILLED:
+    case "GET_DORMS_FULFILLED":
       return {
         ...state,
         loading: false,
-        data: action.payload.data.map((i) => (
+        data: action.payload.data
+        .map((i) => (
           {
             ...i,
             region : {
@@ -28,35 +30,34 @@ export default function dorms(state = initialState, action) {
               width : i.width,
               length : i.length,
             },
-            image : i.image.map((i) => (`${apiUrl()}public/images/${i}`))
-
-            
+            image : i.image.map((i) => (`${apiUrl()}public/images/${i}`)),
+            description: i.desc
           }
         ))
-      };
-    case types.GET_DORMS_REJECTED:
+      };  
+    case "GET_DORMS_REJECTED":
       return {
         ...state,
         loading: false,
         error: payload.message
       };
 
-    case types.ADD_DORM:
-      return {
-        ...state,
-        loading: true
-      };
-    case types.ADD_DORM_FULFILLED:
-      return {
-        ...state,
-        loading: false,
-      };
-    case types.ADD_DORM_REJECTED:
-      return {
-        ...state,
-        loading: false,
-        error: payload.message
-      };
+    // case types.ADD_DORM:
+    //   return {
+    //     ...state,
+    //     loading: true
+    //   };
+    // case types.ADD_DORM_FULFILLED:
+    //   return {
+    //     ...state,
+    //     loading: false,
+    //   };
+    // case types.ADD_DORM_REJECTED:
+    //   return {
+    //     ...state,
+    //     loading: false,
+    //     error: payload.message
+    //   };
     default:
       return state
   }

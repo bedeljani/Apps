@@ -94,9 +94,9 @@ import {data, formatRupiah} from '../../data'
         }
       }
     checkLogin = async () => {
-        const isLoggedin = await AsyncStorage.getItem('isLogin')
+        const isLoggedin = await AsyncStorage.getItem('token')
        
-        if(isLoggedin == 1){
+        if(isLoggedin){
           this.setState({
             navigationTarget : 'BookingKost',
             
@@ -345,7 +345,7 @@ import {data, formatRupiah} from '../../data'
                         <Button style={styles.bottomBarButton}
                             onPress={()=>this.props.navigation.navigate(this.state.navigationTarget, {item : item})}
                         >
-                            <Text style={{ color : 'white'}}>Booking</Text>
+                            <Text style={{ color : 'white', fontSize : 15}}>Booking</Text>
                         </Button>
                     </View>
                 </FooterTab>
