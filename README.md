@@ -21,17 +21,23 @@ AbahKos is a Dorm Finder App. You can find a Dorm easier with this app.
 
 
 ## Features
-* Advertise Your Dorm
-* Search for Drms
+* Register 
+* Login with token auth
+* Advertise your Dorms
+* Search for Dorms
+* Booking your Dorms
+
 
 
 ## Why AbahKos?
 * It's React Native, so it support android & iOS by default!
 * Simple Code, so you can easily contribute on it.
+* Easy to use
 
 ## Tech Stack
 * React Native for the Mobile Frontend
 * Express.js as the Backend
+* MongoDB for Database 
 
 ## Prerequisites
 * Make sure You had been install NodeJs in your system https://nodejs.org/
